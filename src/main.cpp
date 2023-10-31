@@ -29,8 +29,8 @@ int main()
     #if MJ_SKIP_INITIAL_TITLE
         bn::optional<mj::scene_type> next_scene = mj::scene_type::GAME;
     #else
-        //bn::optional<mj::scene_type> next_scene = mj::scene_type::INTRO;
-        bn::optional<mj::scene_type> next_scene = mj::scene_type::TITLE;
+        bn::optional<mj::scene_type> next_scene = mj::scene_type::INTRO;
+        //bn::optional<mj::scene_type> next_scene = mj::scene_type::TITLE;
     #endif
 
     while(true)
