@@ -10,6 +10,8 @@
 #include "mj/mj_scene_type.h"
 #include "mj/mj_game_list.h"
 
+#include "bn_sound_items.h"
+
 #include "bn_regular_bg_items_mj_op_e_bg.h"
 #include "bn_sprite_items_mj_small_pumpkin.h"
 
@@ -56,7 +58,7 @@ namespace mj
             text_generator.set_left_alignment();
             bn::string<32> text;
             bn::ostringstream text_stream(text);
-            text_stream.append(i+_menu_index);
+            text_stream.append(i + _menu_index + 1);
             text_stream.append(" ");
             text_stream.append(game_names.at(i+_menu_index));
             
@@ -87,11 +89,13 @@ namespace mj
         {
             _core->practice_game_index=-1;
             result=scene_type::TITLE;
+            bn::sound_items::mj_pause_begin.play();
         }
         else if(bn::keypad::a_pressed())
         {
             _core->practice_game_index=_selected_game_index;
             result=scene_type::GAME;
+            bn::sound_items::mj_pause_begin.play();
         }
         else if(bn::keypad::down_pressed())
         {
@@ -101,6 +105,7 @@ namespace mj
                 _selected_game_index = 0;
             }
             update_cursor();
+            bn::sound_items::mj_pause_cursor.play();
         }
         else if(bn::keypad::up_pressed())
         {
@@ -110,6 +115,7 @@ namespace mj
                 _selected_game_index = _total_game_entries-1;
             }
             update_cursor();
+            bn::sound_items::mj_pause_cursor.play();
         }
         return result;
     }
