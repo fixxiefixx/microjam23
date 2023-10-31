@@ -19,6 +19,7 @@ namespace mj
         GAME,
         GAME_ZOOM_OUT,
         CREDITS,
+        PRACTICE
     };
 }
 

@@ -39,12 +39,14 @@ private:
     bn::vector<bn::sprite_ptr, 16> _title_sprites_2;
     bn::vector<bn::sprite_ptr, 8> _high_score_sprites;
     bn::vector<bn::sprite_ptr, 4> _play_sprites;
+    bn::vector<bn::sprite_ptr, 4> _practice_sprites;
     bn::vector<bn::sprite_ptr, 4> _credits_sprites;
     bn::vector<bn::sprite_ptr, 4> _version_sprites;
     bn::sprite_ptr _cursor_sprite;
     bn::optional<scene_type> _next_scene;
     bn::sprite_affine_mat_ptr _affine_mat;
     bn::sprite_affine_mat_attributes_hbe_ptr _affine_mat_hbe;
+    int _cursor_selection_index = 0;
 
     void _update_bgs();
 

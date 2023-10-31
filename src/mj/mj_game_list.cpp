@@ -12,6 +12,7 @@ namespace
 
     public:
         function_type functions[max_games];
+        bn::string_view game_names[max_games];
         bn::span<const bn::string_view> code_credits[max_games];
         bn::span<const bn::string_view> graphics_credits[max_games];
         bn::span<const bn::string_view> music_credits[max_games];
@@ -31,13 +32,14 @@ namespace
     }
 }
 
-bool add(function_type function)
+bool add(function_type function, const bn::string_view game_name)
 {
     static_data& data = static_data_instance();
 
     if(data.functions_count < max_games)
     {
         data.functions[data.functions_count] = function;
+        data.game_names[data.functions_count] = game_name;
         ++data.functions_count;
         return true;
     }
@@ -164,6 +166,13 @@ bn::span<bn::span<const bn::string_view>> get_sfx_credits()
     BN_BASIC_ASSERT(! data.failed, "Too much games added");
 
     return bn::span<bn::span<const bn::string_view>>(data.sfx_credits, data.sfx_credits_count);
+}
+
+bn::span<const bn::string_view> get_game_names()
+{
+    static_data& data = static_data_instance();
+    BN_BASIC_ASSERT(! data.failed, "Too much games added");
+    return bn::span<const bn::string_view>(data.game_names,data.functions_count);
 }
 
 }

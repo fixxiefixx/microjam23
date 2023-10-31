@@ -71,7 +71,8 @@ title_scene::title_scene(core& core) :
     text_generator.generate(-22, 12 - (160 / 2), high_score_text, _high_score_sprites);
     text_generator.set_left_alignment();
     text_generator.generate(-14, 32, "PLAY", _play_sprites);
-    text_generator.generate(-14, 32 + 12, "CREDITS", _credits_sprites);
+    text_generator.generate(-14, 32 + 12, "PRACTICE", _practice_sprites);
+    text_generator.generate(-14, 32 + 24, "CREDITS", _credits_sprites);
     text_generator.set_right_alignment();
     text_generator.generate(120 - 12, 80 - 12, MJ_VERSION, _version_sprites);
     text_generator.set_left_alignment();
@@ -292,6 +293,11 @@ void title_scene::_set_menu_visible(bool visible)
         sprite.set_visible(visible);
     }
 
+    for(bn::sprite_ptr& sprite : _practice_sprites)
+    {
+        sprite.set_visible(visible);
+    }
+
     for(bn::sprite_ptr& sprite : _credits_sprites)
     {
         sprite.set_visible(visible);
@@ -306,32 +312,48 @@ void title_scene::_set_menu_visible(bool visible)
 void title_scene::_update_menu()
 {
     bn::fixed play_y = _play_sprites[0].y();
+    bn::fixed practice_y = _practice_sprites[0].y();
     bn::fixed credits_y = _credits_sprites[0].y();
-    bn::fixed cursor_y = _cursor_sprite.y();
-
-    if(bn::keypad::up_pressed() || bn::keypad::down_pressed())
+    bn::fixed y_positions[] = {play_y, practice_y, credits_y};
+    int items_count = sizeof(y_positions) / sizeof(y_positions[0]);
+    
+    if(bn::keypad::down_pressed())
     {
-        if(cursor_y == play_y)
-        {
-            _cursor_sprite.set_y(credits_y);
-        }
-        else
-        {
-            _cursor_sprite.set_y(play_y);
-        }
-
+        _cursor_selection_index++;
+        if(_cursor_selection_index >= items_count)
+            _cursor_selection_index = 0;
+        _cursor_sprite.set_y(y_positions[_cursor_selection_index]);
+        bn::sound_items::mj_pause_cursor.play();
+    }
+    else if(bn::keypad::up_pressed())
+    {
+        _cursor_selection_index--;
+        if(_cursor_selection_index < 0)
+            _cursor_selection_index = items_count - 1;
+        _cursor_sprite.set_y(y_positions[_cursor_selection_index]);
         bn::sound_items::mj_pause_cursor.play();
     }
     else if(bn::keypad::a_pressed())
     {
-        if(cursor_y == play_y)
+        switch(_cursor_selection_index)
         {
-            _next_scene = scene_type::OPENING_A;
+            default:
+            case 0:
+            {
+                _next_scene = scene_type::OPENING_A;
+            }break;
+            case 1:
+            {
+                _next_scene = scene_type::PRACTICE;
+            }break;
+            case 2:
+            {
+                _next_scene = scene_type::CREDITS;
+            }break;
         }
-        else
-        {
-            _next_scene = scene_type::CREDITS;
-        }
+
+
+        
 
         if(! _bgs_fade_action)
         {

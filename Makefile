@@ -28,7 +28,7 @@
 #---------------------------------------------------------------------------------------------------------------------
 TARGET      :=  $(notdir $(CURDIR))
 BUILD       :=  build
-LIBBUTANO   :=  ../butano/butano
+LIBBUTANO   :=  ../../butano
 PYTHON      :=  python
 SOURCES     :=  src src/mj
 INCLUDES    :=  include include/mj
@@ -38,7 +38,7 @@ AUDIO       :=  audio audio/mj
 DMGAUDIO    :=  dmg_audio dmg_audio/mj
 ROMTITLE    :=  GBA MJAM 23
 ROMCODE     :=  2MJ3
-USERFLAGS   :=  -DBN_CFG_AUDIO_MIXING_RATE=BN_AUDIO_MIXING_RATE_21_KHZ -DBN_CFG_AUDIO_MAX_MUSIC_CHANNELS=20
+USERFLAGS   :=  -DBN_CFG_AUDIO_MIXING_RATE=BN_AUDIO_MIXING_RATE_21_KHZ -DBN_CFG_AUDIO_MAX_MUSIC_CHANNELS=20 #-Werror
 USERASFLAGS :=  
 USERLDFLAGS	:=  
 USERLIBDIRS :=  

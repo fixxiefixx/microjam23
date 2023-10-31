@@ -12,7 +12,7 @@
 #define MJ_GAME_LIST_ADD_IMPL2(FunctionName, GameClass, Line) \
     static mj::game* FunctionName(int completed_games, const mj::game_data& data); \
     namespace { \
-        bool MJ_GAME_LIST_UNIQUE_NAME(MJ_GAME_LIST_AUTO_REG_, Line){ mj::game_list::add(&(FunctionName)) }; \
+        bool MJ_GAME_LIST_UNIQUE_NAME(MJ_GAME_LIST_AUTO_REG_, Line){ mj::game_list::add(&(FunctionName),"game name") }; \
     } \
     static mj::game* FunctionName(int completed_games, const mj::game_data& data) { \
         return new GameClass(completed_games, data); \
@@ -72,7 +72,7 @@ namespace mj::game_list
 {
     using function_type = mj::game*(*)(int, const mj::game_data&);
 
-    [[nodiscard]] bool add(function_type function);
+    [[nodiscard]] bool add(function_type function, bn::string_view game_name);
 
     [[nodiscard]] bn::span<function_type> get();
 
@@ -91,6 +91,8 @@ namespace mj::game_list
     [[nodiscard]] bool add_sfx_credits(const bn::span<const bn::string_view>& credits);
 
     [[nodiscard]] bn::span<bn::span<const bn::string_view>> get_sfx_credits();
+
+    [[nodiscard]] bn::span<const bn::string_view> get_game_names();
 }
 
 #endif
