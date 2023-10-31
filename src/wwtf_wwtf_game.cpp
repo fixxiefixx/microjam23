@@ -14,7 +14,7 @@ constexpr bn::string_view graphics_credits[] = { "RiPpEr253" };
 constexpr bn::string_view sfx_credits[] = { "RiPpEr253" };
 }
 
-MJ_GAME_LIST_ADD(wwtf::wwtf_game)
+MJ_GAME_LIST_ADD(wwtf::wwtf_game,"Transform!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 // MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

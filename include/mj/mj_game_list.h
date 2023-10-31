@@ -9,17 +9,17 @@
 
 #define MJ_GAME_LIST_UNIQUE_NAME(Name, Line) Name##Line
 
-#define MJ_GAME_LIST_ADD_IMPL2(FunctionName, GameClass, Line) \
+#define MJ_GAME_LIST_ADD_IMPL2(FunctionName, GameClass, GameName, Line) \
     static mj::game* FunctionName(int completed_games, const mj::game_data& data); \
     namespace { \
-        bool MJ_GAME_LIST_UNIQUE_NAME(MJ_GAME_LIST_AUTO_REG_, Line){ mj::game_list::add(&(FunctionName),"game name") }; \
+        bool MJ_GAME_LIST_UNIQUE_NAME(MJ_GAME_LIST_AUTO_REG_, Line){ mj::game_list::add(&(FunctionName),GameName) }; \
     } \
     static mj::game* FunctionName(int completed_games, const mj::game_data& data) { \
         return new GameClass(completed_games, data); \
     }
 
-#define MJ_GAME_LIST_ADD_IMPL(GameClass, Line) \
-    MJ_GAME_LIST_ADD_IMPL2(MJ_GAME_LIST_UNIQUE_NAME(MJ_GAME_LIST_FUNCTION_, Line), GameClass, Line)
+#define MJ_GAME_LIST_ADD_IMPL(GameClass, GameName, Line) \
+    MJ_GAME_LIST_ADD_IMPL2(MJ_GAME_LIST_UNIQUE_NAME(MJ_GAME_LIST_FUNCTION_, Line), GameClass, GameName, Line)
 
 #define MJ_GAME_LIST_ADD_CODE_CREDITS_IMPL2(FunctionName, Credits, Line) \
     namespace { \
@@ -56,7 +56,7 @@
 
 // PUBLIC MACROS //
 
-#define MJ_GAME_LIST_ADD(GameClass) MJ_GAME_LIST_ADD_IMPL(GameClass, __LINE__)
+#define MJ_GAME_LIST_ADD(GameClass, GameName) MJ_GAME_LIST_ADD_IMPL(GameClass, GameName, __LINE__)
 
 #define MJ_GAME_LIST_ADD_CODE_CREDITS(Credits) MJ_GAME_LIST_ADD_CODE_CREDITS_IMPL(Credits, __LINE__)
 

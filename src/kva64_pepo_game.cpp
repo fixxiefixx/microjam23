@@ -41,7 +41,7 @@ namespace
     }
 }
 
-MJ_GAME_LIST_ADD(kva64::pepo_surgeon_game)
+MJ_GAME_LIST_ADD(kva64::pepo_surgeon_game,"Cut!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 MJ_GAME_LIST_ADD_SFX_CREDITS(sfx_credits)

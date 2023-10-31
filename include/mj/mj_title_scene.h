@@ -47,6 +47,7 @@ private:
     bn::sprite_affine_mat_ptr _affine_mat;
     bn::sprite_affine_mat_attributes_hbe_ptr _affine_mat_hbe;
     int _cursor_selection_index = 0;
+    core* _core;
 
     void _update_bgs();
 

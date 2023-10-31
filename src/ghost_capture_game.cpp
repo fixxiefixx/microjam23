@@ -25,7 +25,7 @@ namespace
     constexpr bn::string_view sfx_credits[] = { "Volvion" };
 }
 
-MJ_GAME_LIST_ADD(ghost_capture::ghost_capture_game)
+MJ_GAME_LIST_ADD(ghost_capture::ghost_capture_game,"GRAB THE GHOST!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 // MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

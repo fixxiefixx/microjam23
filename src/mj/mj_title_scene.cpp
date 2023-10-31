@@ -35,6 +35,7 @@ title_scene::title_scene(core& core) :
     _affine_mat(bn::sprite_affine_mat_ptr::create()),
     _affine_mat_hbe(bn::sprite_affine_mat_attributes_hbe_ptr::create(_affine_mat, _affine_mat_attributes))
 {
+    _core = &core;
     sram_data& sram_data = core.sram_data();
     int old_intro_index = sram_data.intro_index();
     int new_intro_index = old_intro_index + 1;
@@ -340,6 +341,7 @@ void title_scene::_update_menu()
             default:
             case 0:
             {
+                _core->practice_game_index=-1;
                 _next_scene = scene_type::OPENING_A;
             }break;
             case 1:

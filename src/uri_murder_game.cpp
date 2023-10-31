@@ -18,7 +18,7 @@ namespace
     constexpr bn::string_view graphics_credits[] = { "Uri" };
 }
 
-MJ_GAME_LIST_ADD(uri::murder_game)
+MJ_GAME_LIST_ADD(uri::murder_game,"Find the killer!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 

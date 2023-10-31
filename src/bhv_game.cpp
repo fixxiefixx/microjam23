@@ -65,7 +65,7 @@ namespace
 	
 }
 
-MJ_GAME_LIST_ADD(bhv::bhv_game)
+MJ_GAME_LIST_ADD(bhv::bhv_game,"SING!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 // MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

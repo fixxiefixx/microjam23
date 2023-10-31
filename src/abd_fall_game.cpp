@@ -21,7 +21,7 @@ namespace
     constexpr bn::string_view sfx_credits[] = { "JDWasabi" };
 }
 
-MJ_GAME_LIST_ADD(abd::abd_fall_game)
+MJ_GAME_LIST_ADD(abd::abd_fall_game,"Catch the candy!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 // MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

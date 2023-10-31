@@ -35,25 +35,30 @@ game_manager::game_manager(int completed_games, const game_data& data, core& cor
     auto begin = game_history.begin();
     auto end = game_history.end();
     uint8_t game_index;
-
-    do
+    if(core.practice_game_index==-1)
     {
-        game_index = uint8_t(core.random().get_int(game_list_entries_count));
+        do
+        {
+            game_index = uint8_t(core.random().get_int(game_list_entries_count));
+        }
+        while(bn::find(begin, end, game_index) != end);
+
+        int game_history_size = bn::min(game_history.max_size(), game_list_entries_count);
+
+        while(game_history.size() >= game_history_size)
+        {
+            game_history.pop_front();
+        }
+
+        if(game_history.max_size() < game_list_entries_count)
+        {
+            game_history.push_back(game_index);
+        }
     }
-    while(bn::find(begin, end, game_index) != end);
-
-    int game_history_size = bn::min(game_history.max_size(), game_list_entries_count);
-
-    while(game_history.size() >= game_history_size)
+    else
     {
-        game_history.pop_front();
+        game_index = core.practice_game_index;
     }
-
-    if(game_history.max_size() < game_list_entries_count)
-    {
-        game_history.push_back(game_index);
-    }
-
     game_list::function_type game_list_entry = game_list_entries[game_index];
     _game.reset(game_list_entry(completed_games, data));
 }

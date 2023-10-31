@@ -11,7 +11,7 @@ namespace {
 }
 
 // Add it twice since it contains two micro games (if this is not allowed, feel free to delete!)
-MJ_GAME_LIST_ADD(dh::game)
+MJ_GAME_LIST_ADD(dh::game,"Door Hell")
 // MJ_GAME_LIST_ADD(dh::game)
 
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)

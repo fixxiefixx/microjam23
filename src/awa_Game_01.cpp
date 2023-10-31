@@ -17,7 +17,7 @@ namespace
     constexpr bn::string_view graphics_credits[] = { "FunfettiPhantom", "installationwizard" };
 }
 
-MJ_GAME_LIST_ADD(awa::Game01)
+MJ_GAME_LIST_ADD(awa::Game01,"Bob for apples!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 

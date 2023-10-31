@@ -39,7 +39,7 @@ namespace
 
 }
 
-MJ_GAME_LIST_ADD(fixxg2::game)
+MJ_GAME_LIST_ADD(fixxg2::game,"Shoot zombie!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 // MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

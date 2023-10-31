@@ -43,7 +43,7 @@ constexpr bn::string_view music_credits[] = {"copyrat90"};
 constexpr bn::string_view sfx_credits[] = {"copyrat90", "kingsrow"};
 } // namespace
 
-MJ_GAME_LIST_ADD(cr90::ltcd::Game)
+MJ_GAME_LIST_ADD(cr90::ltcd::Game,"Light Candles!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

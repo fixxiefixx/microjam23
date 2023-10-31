@@ -11,7 +11,7 @@ constexpr bn::string_view code_credits[] = {"Evan Bowman"};
 constexpr bn::string_view graphics_credits[] = {"Evan Bowman"};
 } // namespace
 
-MJ_GAME_LIST_ADD(eab::robbery)
+MJ_GAME_LIST_ADD(eab::robbery,"snatch pumpkins!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 

@@ -7,7 +7,7 @@ namespace
     constexpr bn::string_view graphics_credits[] = {"KDs_Arts", "Gustavo Vituri", "Jimmi_Jam"};
 }
 
-MJ_GAME_LIST_ADD(jim::survival)
+MJ_GAME_LIST_ADD(jim::survival,"Survive")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 

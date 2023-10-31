@@ -42,6 +42,8 @@ public:
 
     void update();
 
+    int practice_game_index = -1;
+
 private:
     bn::sprite_text_generator _text_generator;
     bn::sprite_text_generator _small_text_generator;

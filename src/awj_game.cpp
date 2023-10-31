@@ -27,7 +27,7 @@ namespace
     constexpr bn::string_view sfx_credits[] = { "AWJ" };
 }
 
-MJ_GAME_LIST_ADD(awj::awj_game)
+MJ_GAME_LIST_ADD(awj::awj_game,"FIND THE CANDY!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 MJ_GAME_LIST_ADD_SFX_CREDITS(sfx_credits)

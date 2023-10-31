@@ -161,7 +161,14 @@ bn::optional<scene_type> game_scene::update()
 
             if(exit)
             {
-                _next_scene = scene_type::TITLE;
+                if(_core.practice_game_index == -1)
+                {
+                    _next_scene = scene_type::TITLE;
+                }
+                else
+                {
+                    _next_scene = scene_type::PRACTICE;
+                }
                 _fade_out_frames = fade_out_frames;
             }
         }
@@ -193,9 +200,16 @@ bn::optional<scene_type> game_scene::update()
 
                 if(_update_fade(update_again))
                 {
-                    _game_over_scene.reset(new game_over_scene(_completed_games, _core));
+                    if(_core.practice_game_index==-1)
+                    {
+                        _game_over_scene.reset(new game_over_scene(_completed_games, _core));
 
-                    _play_music(game_over_music_position, game_over_music_volume, 1);
+                        _play_music(game_over_music_position, game_over_music_volume, 1);
+                    }
+                    else
+                    {
+                        result=scene_type::PRACTICE;
+                    }
                 }
             }
 

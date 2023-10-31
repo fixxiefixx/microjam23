@@ -23,7 +23,7 @@ namespace
     constexpr bn::string_view sfx_credits[] = { "Roger at freesound.org" };
 }
 
-MJ_GAME_LIST_ADD(kva64::critter_carousel_game)
+MJ_GAME_LIST_ADD(kva64::critter_carousel_game,"Critter Carousel")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

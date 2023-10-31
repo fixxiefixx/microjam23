@@ -25,7 +25,7 @@ namespace
     constexpr bn::string_view sfx_credits[] = { "Michael Elkayam", "3Maze", "Soundspark LLC", "Studio 23" };
 }
 
-MJ_GAME_LIST_ADD(hh::mystic_mansion)
+MJ_GAME_LIST_ADD(hh::mystic_mansion,"Avoid monsters!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 // MJ_GAME_LIST_ADD_MUSIC_CREDITS(music_credits)

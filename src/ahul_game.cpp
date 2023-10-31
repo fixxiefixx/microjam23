@@ -15,7 +15,7 @@ namespace
     constexpr bn::string_view graphics_credits[] = { "ahul" };
 }
 
-MJ_GAME_LIST_ADD(ahul::game)
+MJ_GAME_LIST_ADD(ahul::game,"Lights On!")
 MJ_GAME_LIST_ADD_CODE_CREDITS(code_credits)
 MJ_GAME_LIST_ADD_GRAPHICS_CREDITS(graphics_credits)
 
